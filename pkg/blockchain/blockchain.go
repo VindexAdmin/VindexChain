@@ -11,18 +11,29 @@ import (
 
 // Blockchain representa toda la cadena de bloques
 type Blockchain struct {
-	Blocks []*core.Block
+	Blocks     []*core.Block
+	Validators []core.Validator // 🔥 Validadores PoS
 }
 
 // NewBlockchain crea la cadena con el bloque génesis
 func NewBlockchain() *Blockchain {
-	genesis := core.NewBlock([]core.Transaction{}, []byte{})
-	return &Blockchain{[]*core.Block{genesis}}
+	validators := []core.Validator{
+		{Address: "Lufer", Stake: 100},
+		{Address: "Esposa", Stake: 50},
+		{Address: "CriptoLibertad", Stake: 25},
+	}
+
+	genesis := core.NewBlock([]core.Transaction{}, []byte{}, "Genesis")
+	return &Blockchain{
+		Blocks:     []*core.Block{genesis},
+		Validators: validators,
+	}
 }
 
 // AddBlock agrega un nuevo bloque a la cadena
 func (bc *Blockchain) AddBlock(transactions []core.Transaction) {
 	prevBlock := bc.Blocks[len(bc.Blocks)-1]
-	newBlock := core.NewBlock(transactions, prevBlock.Hash)
+	validator := core.SelectValidator(bc.Validators)
+	newBlock := core.NewBlock(transactions, prevBlock.Hash, validator.Address)	
 	bc.Blocks = append(bc.Blocks, newBlock)
 }

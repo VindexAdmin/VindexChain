@@ -1,0 +1,54 @@
+{
+  "Blocks": [
+    {
+      "Timestamp": 1744143430,
+      "Transactions": [],
+      "PrevHash": "",
+      "Hash": "OSbBHGa8qI1GZbxrSqBTsyy9pNuUL8+mkPbeS8HzDRU=",
+      "Nonce": 0,
+      "Creator": "Genesis"
+    },
+    {
+      "Timestamp": 1744143430,
+      "Transactions": [
+        {
+          "From": "Lufer",
+          "To": "Esposa",
+          "Amount": 100
+        }
+      ],
+      "PrevHash": "OSbBHGa8qI1GZbxrSqBTsyy9pNuUL8+mkPbeS8HzDRU=",
+      "Hash": "8jRMMSGCi1laEaY+XL398aP4dv6r6imdJE9QMKJJVoI=",
+      "Nonce": 0,
+      "Creator": "Lufer"
+    },
+    {
+      "Timestamp": 1744143430,
+      "Transactions": [
+        {
+          "From": "Esposa",
+          "To": "CriptoLibertad",
+          "Amount": 50
+        }
+      ],
+      "PrevHash": "8jRMMSGCi1laEaY+XL398aP4dv6r6imdJE9QMKJJVoI=",
+      "Hash": "lF9xJfftsTP/8XVLTNtrPEXd8+M10VQiHVLEQombY0g=",
+      "Nonce": 0,
+      "Creator": "Lufer"
+    }
+  ],
+  "Validators": [
+    {
+      "Address": "Lufer",
+      "Stake": 100
+    },
+    {
+      "Address": "Esposa",
+      "Stake": 50
+    },
+    {
+      "Address": "CriptoLibertad",
+      "Stake": 25
+    }
+  ]
+}

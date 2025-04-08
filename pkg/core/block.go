@@ -18,18 +18,24 @@ type Block struct {
 	PrevHash     []byte
 	Hash         []byte
 	Nonce        int
+	Creator      string // 👤 Nuevo: validador que creó el bloque
 }
 
 // NewBlock crea un nuevo bloque
-func NewBlock(transactions []Transaction, prevHash []byte) *Block {
-	block := &Block{time.Now().Unix(), transactions, prevHash, []byte{}, 0}
+func NewBlock(transactions []Transaction, prevHash []byte, creator string) *Block {
+	block := &Block{
+		Timestamp:    time.Now().Unix(),
+		Transactions: transactions,
+		PrevHash:     prevHash,
+		Creator:      creator,
+	}
 	block.Hash = block.calculateHash()
 	return block
 }
 
 // calcula el hash del bloque
 func (b *Block) calculateHash() []byte {
-	headers := fmt.Sprintf("%x%d%d", b.PrevHash, b.Timestamp, b.Nonce)
+	headers := fmt.Sprintf("%x%d%d%s", b.PrevHash, b.Timestamp, b.Nonce, b.Creator)
 	hash := sha256.Sum256([]byte(headers))
 	return hash[:]
 }
