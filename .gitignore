@@ -1,0 +1,20 @@
+# Archivos del sistema
+.DS_Store
+
+# Archivos binarios
+*.exe
+*.out
+*.bin
+
+# Compilación de Go
+/go.sum
+/go.mod
+
+# Carpetas temporales
+tmp/
+bin/
+build/
+
+# Archivos personales o locales
+*.log
+.env
